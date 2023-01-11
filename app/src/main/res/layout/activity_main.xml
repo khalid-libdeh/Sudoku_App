@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/solveBtn"
+        style="@android:style/Widget.Holo.Light.Button"
+        android:layout_width="413dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="156dp"
+        android:background="@color/teal_200"
+        android:backgroundTintMode="src_in"
+        android:text="Solve"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/puzzleBtn"
+        style="@android:style/Widget.Holo.Light.Button"
+        android:layout_width="413dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/teal_200"
+        android:text="Generate Puzzle"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solveBtn" />
+
+    <Button
+        android:id="@+id/verifyBtn"
+        style="@android:style/Widget.Holo.Light.Button"
+        android:layout_width="413dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/teal_200"
+        android:text="Verify"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puzzleBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
