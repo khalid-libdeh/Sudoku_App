@@ -3,7 +3,13 @@ package com.example.sudoku_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
+import android.widget.Toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,9 +19,26 @@ class MainActivity : AppCompatActivity() {
         val generate = findViewById<Button>(R.id.puzzleBtn)
         val verify = findViewById<Button>(R.id.verifyBtn)
         solve.setOnClickListener {
-
             val intent = Intent(this@MainActivity, SolveMode::class.java)
-            startActivity(intent)
+            val values=Request(0,null,0)
+            API.getApi()?.sendAllValues(values)?.enqueue(object: Callback<Any> {
+
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@MainActivity,
+                            "Camera request accepted", Toast.LENGTH_LONG).show()
+                        startActivity(intent)
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    Toast.makeText(this@MainActivity,
+                        "Camera request Failed", Toast.LENGTH_SHORT).show()
+                    println(t.message)
+                }
+
+            })
+
         }
 
         generate.setOnClickListener{

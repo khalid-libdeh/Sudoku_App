@@ -1,45 +1,98 @@
 package com.example.sudoku_app
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.gridlayout.widget.GridLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
+import java.util.Timer
+import kotlin.concurrent.schedule
 
 class SolveMode : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solve_mode)
-
         val sudokuArray = IntArray(81)
         val editTextList = ArrayList<EditText>()
         val grid = findViewById<GridLayout>(R.id.sudoku)
+        val confirm = findViewById<Button>(R.id.confirmBtn)
+        val getGrid = findViewById<Button>(R.id.get_grid)
+        var test = findViewById<TextView>(R.id.test)
+
+        getGrid.isClickable =false
+        confirm.isClickable =false
+
         for (i in 0 until grid.childCount) {
             if (grid.getChildAt(i) is EditText) {
                 editTextList.add(grid.getChildAt(i) as EditText)
             }
         }
-        confirm(editTextList)
 
-    }
+        Timer("Setting Up", false).schedule(30000) {
+            getGrid.isClickable =true
+            confirm.isClickable =true
+        }
 
-     fun confirm(arr: ArrayList<EditText>) {
-        val confirm = findViewById<Button>(R.id.confirmBtn)
-        //
+        getGrid.setOnClickListener {
+            API.getApi()?.getAllValues()?.enqueue(
+                object : Callback<com.example.sudoku_app.Response> {
+                    override fun onResponse(
+                        call: Call<com.example.sudoku_app.Response>,
+                        response: Response<com.example.sudoku_app.Response>
+                    ) {
+                        if (response.isSuccessful) {
+                            println("received values")
+                            val values:String = response.body()?.values.toString()
 
-        var test = findViewById<TextView>(R.id.test)
+                            for(i in 0 until editTextList.size ){
+                                editTextList[i].text = values.substring(i,i+1) as Editable
+                                // could never be right
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<com.example.sudoku_app.Response>, t: Throwable) {
+                         Toast.makeText(this@SolveMode,
+                            "receive values Failed", Toast.LENGTH_SHORT).show()
+                    }
+                })
+        }
+
         confirm.setOnClickListener {
             var output=""
-            for(i in 0 until arr.size ){
-                output += arr[i].text.toString()
-
-              }
-
-
+            for(i in 0 until editTextList.size ){
+                output += editTextList[i].text.toString()
+            }
             test.text = output
+            val values=Request(1,output,0)
+            API.getApi()?.sendAllValues(values)?.enqueue(object: Callback<Any> {
+
+                override fun onResponse(call: Call<Any>, response: Response<Any>) {
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@SolveMode,
+                            "Confirmed", Toast.LENGTH_LONG).show()
+                        this@SolveMode.finish()
+                    }
+                }
+
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    Toast.makeText(this@SolveMode,
+                        "Confirm Failed", Toast.LENGTH_SHORT).show()
+                    println(t.message)
+                }
+
+            })
         }
+
+
     }
 }
 

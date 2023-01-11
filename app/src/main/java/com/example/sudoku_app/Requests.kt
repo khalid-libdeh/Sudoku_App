@@ -12,6 +12,5 @@ interface Requests {
     fun getAllValues(): Call<Response>
 
     @POST("post")
-    fun sendAllValues(@Body info: InputValues):Call<Any>
-
+    fun sendAllValues(@Body info: Request):Call<Any>
 }

@@ -1015,11 +1015,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/get_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="466dp" />
+        android:text="Get Grid"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="439dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
