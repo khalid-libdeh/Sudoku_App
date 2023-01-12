@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object API {
-    private const val BASE_URL ="http://192.168.43.112"
+    private const val BASE_URL ="http://192.168.238.112"
     private var gson: Gson = GsonBuilder()
         .setLenient()
         .create()
