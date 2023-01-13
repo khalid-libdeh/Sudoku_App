@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity,
                         "Camera request Failed", Toast.LENGTH_SHORT).show()
                     println(t.message)
+
                 }
 
             })
