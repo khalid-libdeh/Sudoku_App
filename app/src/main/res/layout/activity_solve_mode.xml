@@ -10,10 +10,14 @@
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/sudoku"
-        android:layout_width="408dp"
-        android:layout_height="401dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
         android:background="#1f4c61"
         app:columnCount="9"
+        app:layout_constraintBottom_toTopOf="@+id/confirmBtn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -51,6 +55,8 @@
             android:hint="0"
             android:inputType="number"
             android:text="0"
+            app:layout_column="2"
+            app:layout_row="0"
             tools:text="0" />
 
         <EditText
@@ -994,11 +1000,12 @@
         android:id="@+id/confirmBtn"
         android:layout_width="275dp"
         android:layout_height="63dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/corner"
         android:text="Confirm"
         android:textColor="@color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/get_grid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sudoku" />
@@ -1008,11 +1015,14 @@
         android:layout_width="275dp"
         android:layout_height="63dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/corner"
         android:text="Get Grid"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/confirmBtn"
-        tools:layout_editor_absoluteX="68dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

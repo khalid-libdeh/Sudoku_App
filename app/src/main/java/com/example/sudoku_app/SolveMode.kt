@@ -20,7 +20,6 @@ class SolveMode : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solve_mode)
-        val sudokuArray = IntArray(81)
         val editTextList = ArrayList<EditText>()
         val grid = findViewById<GridLayout>(R.id.sudoku)
         val confirm = findViewById<Button>(R.id.confirmBtn)
@@ -52,8 +51,7 @@ class SolveMode : AppCompatActivity() {
                             val values:String = response.body()?.values.toString()
 
                             for(i in 0 until editTextList.size ){
-                                editTextList[i].text = values.substring(i,i+1) as Editable
-                                // could never be right
+                                editTextList[i].setText(values.substring(i,i+1))
                             }
                         }
                     }

@@ -20,8 +20,10 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/solveBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.431" />
 
     <Button
         android:id="@+id/solveBtn"
@@ -29,11 +31,13 @@
         android:layout_width="350dp"
         android:layout_height="86dp"
         android:layout_marginTop="264dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/corner"
         android:backgroundTintMode="src_in"
         android:text="Solve"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/puzzleBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +49,12 @@
         android:layout_width="350dp"
         android:layout_height="86dp"
         android:layout_marginTop="28dp"
+        android:layout_marginBottom="195dp"
         android:background="@drawable/corner"
         android:text="Generate Puzzle"
         android:textColor="@color/white"
         android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"

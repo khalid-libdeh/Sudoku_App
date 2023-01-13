@@ -46,7 +46,7 @@ class PuzzleMode : AppCompatActivity() {
         }
 
         med.setOnClickListener{
-            val values=Request(2,null,0)
+            val values=Request(2,null,1)
             API.getApi()?.sendAllValues(values)?.enqueue(object: Callback<Any> {
 
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
@@ -70,7 +70,7 @@ class PuzzleMode : AppCompatActivity() {
         }
 
         hard.setOnClickListener{
-            val values=Request(2,null,0)
+            val values=Request(2,null,2)
             API.getApi()?.sendAllValues(values)?.enqueue(object: Callback<Any> {
 
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
