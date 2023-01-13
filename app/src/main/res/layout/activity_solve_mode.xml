@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border"
+    android:background="#1f4c61"
     app:layoutDescription="@xml/activity_solve_mode_scene"
     tools:context=".SolveMode">
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/sudoku"
-        android:layout_width="397dp"
-        android:layout_height="398dp"
-        android:background="@drawable/border"
+        android:layout_width="408dp"
+        android:layout_height="401dp"
+        android:background="#1f4c61"
         app:columnCount="9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -992,34 +992,27 @@
 
     <Button
         android:id="@+id/confirmBtn"
-        android:layout_width="177dp"
-        android:layout_height="66dp"
+        android:layout_width="275dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/corner"
         android:text="Confirm"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/test"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sudoku" />
 
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="326dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="40dp"
-        android:text="0"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/get_grid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="275dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/corner"
         android:text="Get Grid"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="439dp" />
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/confirmBtn"
+        tools:layout_editor_absoluteX="68dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

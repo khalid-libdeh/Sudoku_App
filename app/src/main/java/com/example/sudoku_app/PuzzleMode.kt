@@ -15,7 +15,7 @@ class PuzzleMode : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_puzzle_mode)
 
-        val easy = findViewById<Button>(R.id.easyBtn)
+        val easy = findViewById<Button>(R.id.easy)
         val med = findViewById<Button>(R.id.medBtn)
         val hard = findViewById<Button>(R.id.hardBtn)
         easy.setOnClickListener{

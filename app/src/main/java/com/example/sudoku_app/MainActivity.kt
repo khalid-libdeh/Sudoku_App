@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val solve = findViewById<Button>(R.id.solveBtn)
         val generate = findViewById<Button>(R.id.puzzleBtn)
-        val verify = findViewById<Button>(R.id.verifyBtn)
         solve.setOnClickListener {
             val intent = Intent(this@MainActivity, SolveMode::class.java)
             val values=Request(0,null,0)
@@ -43,10 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         generate.setOnClickListener{
             val intent = Intent(this@MainActivity, PuzzleMode::class.java)
-            startActivity(intent)
-        }
-        verify.setOnClickListener{
-            val intent = Intent(this@MainActivity, VerifyMode::class.java)
             startActivity(intent)
         }
 

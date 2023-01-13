@@ -25,7 +25,6 @@ class SolveMode : AppCompatActivity() {
         val grid = findViewById<GridLayout>(R.id.sudoku)
         val confirm = findViewById<Button>(R.id.confirmBtn)
         val getGrid = findViewById<Button>(R.id.get_grid)
-        var test = findViewById<TextView>(R.id.test)
 
         getGrid.isClickable =false
         confirm.isClickable =false
@@ -60,7 +59,7 @@ class SolveMode : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<com.example.sudoku_app.Response>, t: Throwable) {
-                         Toast.makeText(this@SolveMode,
+                        Toast.makeText(this@SolveMode,
                             "receive values Failed", Toast.LENGTH_SHORT).show()
                     }
                 })
@@ -71,7 +70,7 @@ class SolveMode : AppCompatActivity() {
             for(i in 0 until editTextList.size ){
                 output += editTextList[i].text.toString()
             }
-            test.text = output
+
             val values=Request(1,output,0)
             API.getApi()?.sendAllValues(values)?.enqueue(object: Callback<Any> {
 
@@ -95,4 +94,3 @@ class SolveMode : AppCompatActivity() {
 
     }
 }
-
